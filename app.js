@@ -128,6 +128,6 @@ app.get('/logout', (req, res) => {
 
 const server = http.createServer(app);
 
-server.listen(PORT, HOSTNAME, function () {
-  console.log(`server is listening at http://${HOSTNAME}:${PORT}`);
-})
+server.listen(PORT, function () {
+  console.log(`Server running on port ${PORT}`);
+});

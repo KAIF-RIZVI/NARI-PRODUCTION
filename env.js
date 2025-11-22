@@ -1,17 +1,19 @@
 module.exports = {
   dbConfig: {
-    user: "naari",
-    password: "codefornationIndia",
-    database: "db2",
-    host: "naari.cm5ntlz6dd3o.us-east-2.rds.amazonaws.com",
-    port: 5432,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT || 5432,
     max: 20,
     connectionTimeoutMillis: 0,
     idleTimeoutMillis: 0
   },
-  COOKIE_SECRET: "#4wq5wnmo4nantypwqmp1&^%*",
-  SESSION_SECRET: "35nnn32newrew023mlefNONWFE",
-  PORT: 7432,
-  HOSTNAME:"localhost",
-  USER:"onbit-syn",
+
+  COOKIE_SECRET: process.env.COOKIE_SECRET,
+  SESSION_SECRET: process.env.SESSION_SECRET,
+
+  PORT: process.env.PORT || 3000,
+
+  USER: process.env.USER_NAME
 };
