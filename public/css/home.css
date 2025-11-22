@@ -1,0 +1,118 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.myBg {
+    background-color: #0a1931 !important;
+  }
+  
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1a237e;
+    font-weight: 600;
+}
+
+p {
+    color: #343a40;
+}
+
+a {
+    color: #007bff;
+}
+
+#slideshowImg {
+    height: auto;
+    object-fit: contain;
+}
+
+.carousel-caption {
+    display: inline;
+    color: black;
+}
+
+.mybanner {
+    background-color: #e9ecef;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    font-size: 15px;
+}
+
+.myTextalignment {
+    float: left;
+    align-content: center;
+}
+
+.myIconsize {
+    align-items: baseline;
+    display: inline-block;
+}
+
+.mybannerspace {
+    margin-bottom: 20px;
+}
+
+ul.nav-pills {
+    top: 20px;
+    position: fixed;
+}
+
+div.col-8 div {
+    height: 300px;
+}
+
+.footer {
+    background-color: #343a40;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: none;
+}
+
+.card:hover {
+    transform: none;
+}
+
+.navbar-dark .navbar-brand, .navbar-dark .nav-link {
+    color: #212529 !important;
+}
+
+/* General Button Styling for Transparency */
+.btn, .navbar-toggler, .nav-link.dropdown-toggle {
+    background: transparent !important;
+    border-radius: 16px !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid #212529 !important;
+    transition: transform .2s ease-in-out !important;
+    color: #212529 !important;
+    padding: 10px 20px !important;
+}
+
+.btn:hover, .navbar-toggler:hover, .nav-link.dropdown-toggle:hover {
+    transform: scale(1.05) !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn u {
+    text-decoration: none !important;
+}
+
+#navbarHeader .text-white, #navbarHeader .text-muted {
+    color: #212529 !important;
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(33, 37, 41, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: rgba(33, 37, 41, 0.1) !important;
+}

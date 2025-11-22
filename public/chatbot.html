@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahayika Assistant</title>
+    <style>
+        /* Basic styles for the chat window */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            height: 100%;
+            background-color: #f8f9fa;
+        }
+
+        /* Container for the entire chat interface */
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Area where messages are displayed */
+        #chat-log {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto; /* Allows scrolling */
+        }
+
+        /* Styling for individual messages */
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+            line-height: 1.4;
+        }
+
+        /* Styling for the bot's messages */
+        .bot-message {
+            background-color: #e9ecef;
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        
+        /* Styling for the user's messages */
+        .user-message {
+            background-color: #007bff; /* Blue background */
+            color: white;
+            align-self: flex-end; /* Aligns to the right */
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Container for the input form at the bottom */
+        #input-container {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        /* The text input field */
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+        /* The send button */
+        #send-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        #send-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chat-container">
+        <!-- Chat log where messages will appear -->
+        <div id="chat-log">
+            <div class="message bot-message">
+                Hello! I am Sahayika. How can I help you today?
+            </div>
+        </div>
+
+        <!-- Input form at the bottom -->
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Get references to the HTML elements
+        const chatLog = document.getElementById('chat-log');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        // --- Sahayika's Knowledge Base ---
+        const knowledgeBase = {
+            "mission": "Our mission is to provide digital solutions and services that enable women to create sustainable livelihoods, care for their families, and improve their lives.",
+            "about": "Naari is a portal designed to enhance the financial independence of women. We help with banking, investments through our 'Gullak' feature, and provide an e-market for entrepreneurs.",
+            "gullak": "Gullak is a digital investment tool where women can add money to a central account, which is then invested in the market to help it grow.",
+            "services": "We offer many services, including Gullak, assistance with opening bank accounts, an E-Market, a Job Portal, and information on documentation and government schemes. Which one are you interested in?",
+            "contact": "You can contact the Naari team by emailing them at contact2naari@gmail.com, or follow them on Twitter and Facebook.",
+            "e-market": "Our E-Market helps women entrepreneurs and Self-Help Groups (SHGs) sell their products, like handicrafts and food items, to a wider audience online.",
+            "job": "The Job Portal lists verified and legally authorized job opportunities for women to help them find work.",
+            "default": "I'm sorry, I don't have information about that. You can ask me about our 'mission', 'services', 'gullak', or how to 'contact' us."
+        };
+
+        // --- Function to get a reply from the knowledge base ---
+        function getBotResponse(userInput) {
+            const lowerInput = userInput.toLowerCase();
+            for (const keyword in knowledgeBase) {
+                if (lowerInput.includes(keyword)) {
+                    return knowledgeBase[keyword];
+                }
+            }
+            return knowledgeBase["default"];
+        }
+
+        // --- Function to add a user's message to the chat log ---
+        function appendUserMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'user-message');
+            messageElement.textContent = message;
+            chatLog.appendChild(messageElement);
+            // Scroll to the bottom to see the new message
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        // --- Function to add Sahayika's reply to the chat log ---
+        function appendBotMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'bot-message');
+            messageElement.textContent = message;
+            chatLog.appendChild(messageElement);
+            // Scroll to the bottom to see the new message
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+        
+        // --- Function to handle the chat logic ---
+        function handleSendMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                // 1. Display the user's message
+                appendUserMessage(message);
+                
+                // 2. Clear the input field
+                userInput.value = '';
+
+                // 3. Get a response from the bot and display it
+                const botResponse = getBotResponse(message);
+                setTimeout(() => {
+                    appendBotMessage(botResponse);
+                }, 500); // Wait half a second to simulate thinking
+            }
+        }
+
+        // --- Event Listeners ---
+        // 1. Listen for clicks on the send button
+        sendButton.addEventListener('click', handleSendMessage);
+
+        // 2. Listen for pressing the "Enter" key in the input field
+        userInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
