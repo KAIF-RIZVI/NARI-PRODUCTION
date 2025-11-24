@@ -73,8 +73,7 @@ You only need a modern web browser (like Google Chrome, Firefox, or Safari).
 ### Installation
 
 1.  Clone the repository:
-    sh
-    git clone https://github.com/KAIF-RIZVI/NARI-PRODUCTION.git)
+    git clone https://github.com/KAIF-RIZVI/NARI-PRODUCTION.git
     
 2.  Navigate to the project directory:
     sh
