@@ -74,7 +74,7 @@ You only need a modern web browser (like Google Chrome, Firefox, or Safari).
 
 1.  Clone the repository:
     sh
-    git clone https://github.com/your-username/naari-project.git
+    git clone https://github.com/KAIF-RIZVI/NARI-PRODUCTION.git)
     
 2.  Navigate to the project directory:
     sh
@@ -86,7 +86,7 @@ You only need a modern web browser (like Google Chrome, Firefox, or Safari).
 
 ## Contact
 
-Project Link: [https://github.com/your-username/naari-project](https://github.com/your-username/naari-project)
+Project Link: https://github.com/KAIF-RIZVI/NARI-PRODUCTION.git
 
 *Authors - CodeMagicians:*
 *   *Email:* [contact2naari@gmail.com](mailto:contact2naari@gmail.com)
